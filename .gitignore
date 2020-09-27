@@ -132,4 +132,4 @@ dmypy.json
 .vscode/
 
 # Artifical datasets
-data/artifical_data/*
+data/artificial_data/*

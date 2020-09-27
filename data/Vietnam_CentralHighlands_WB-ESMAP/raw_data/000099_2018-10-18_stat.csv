@@ -1,0 +1,66 @@
+# instrument NDL485-3084108474
+# measurement 000099
+# version 3.3.5, Helioscale-RSP-0-1.install
+#
+# configuration=Site
+# siteName="SN1162 - Vietnam VNCEH"
+# siteLatitude=12.7534,North
+# siteLongitude=107.8761,East
+# siteElevation=290
+# siteInfo=SystemNumber,A017042
+# siteInfo=DataLogger,"Wilmers Messtechnik GmbH, 0141, blueberry COMPACT, sn1162"
+# timezone=UTC
+#
+# configuration=Measurement
+# storeperiod=day
+# highresarchive=yes
+# highresfilelength=3600
+# pollperiod=1
+# statperiod=60
+# compact_DIN1func="vWind10m (m/s)",FREQ_TTL,0.25,0.2,zerooff
+# compact_AIN1func="uDR02 (V)",VOLTAGE,1,0
+# compact_AIN2func="uIset1 (V)",VOLTAGE,1,0
+# compact_AIN3func="uIset2 (V)",VOLTAGE,1,0
+# compact_AIN4func="uIset3 (V)",VOLTAGE,1,0
+# compact_AIN6func="DirWind (°)",DIR,1,0
+# function="DniDR02 (W/m2)",{mean,sigma,max,min},"uDR02 / 0.00001221"
+# function="DhiSR30 (W/m2)",{mean,sigma,max,min},"0.01 * c1"
+# function="GhiSR30 (W/m2)",{mean,sigma,max,min},"0.01 * d1"
+# function="GhiIset1 (W/m2)",{mean,sigma,max,min},"uIset1 / 0.000029660"
+# function="GhiIset2 (W/m2)",{mean,sigma,max,min},"uIset2 / 0.000029517"
+# function="GhiIset3 (W/m2)",{mean,sigma,max,min},"uIset3 / 0.000032023"
+# function="TempSR30Dhi (°C)",mean,"0.01 * e1"
+# function="TempSR30Ghi (°C)",mean,"0.01 * f1"
+# function="TempIset1 (°C)",mean,"(-0.39083 + (0.39083^2 + 0.000231 * (100 - 100*(b2/b4)))^0.5) / (-0.0001155)"
+# function="TempIset3 (°C)",mean,"(-0.39083 + (0.39083^2 + 0.000231 * (100 - 100*(b3/b5)))^0.5) / (-0.0001155)"
+# function="TempLogger (°C)",{mean,max,min},TINT1
+# function="TempAir (°C)",{mean,max,min},g1
+# function="HumAir (%RH)",{mean,max,min},g3
+# function="pBaro (hPa)",{mean,max,min},PAIR1
+# function="uSupply (V)",{mean,max,min},POWER1
+# function="iSupply (A)",{mean,max,min},POWER4
+# function="PowSupply (W)",{mean,max,min},"0.1 * round (10* uSupply * iSupply)"
+# function="uBat1 (V)",{mean,max,min},POWER2
+# function="uBat2 (V)",{mean,max,min},POWER3
+# function="Service (1=SwitchPressed)",max,"!b1"
+# function="SolarElevation (°)",mean,"180*h1/3.1415926"
+# function="DOUT1 (1 = DR02 Heater ON)",mean,"(SolarElevation > 0) * (SolarElevation < 10) * ((uBat1+uBat2)>24)"
+# function="CalGhiRef (W/m2)",{mean,sigma,max,min},"0.01 * i1"
+# function="CalDniRef (W/m2)",{mean,sigma,max,min},"VOLTAGE6 / 0.00001226"
+# function="DOUT2 (1 = DniRef Heater ON)",mean,DOUT1
+# pollbaudrate=19200
+# pollchardelay=0
+# pollteledelay=50
+# polltimeout=0.5
+# pollretry=0
+# poll="#99d10s5s11i2i4\r",,,crc2
+# poll="modbusrtu:1,4,2,2,lE",,"parity=even"
+# poll="modbusrtu:2,4,2,2,lE",,"parity=even"
+# poll="modbusrtu:1,4,6,1,i",,"parity=even"
+# poll="modbusrtu:2,4,6,1,i",,"parity=even"
+# poll="modbusrtu:247,4,25,6,f",,"parity=even"
+# poll=current-solarposition
+# poll="modbusrtu:3,4,2,2,lE",,"parity=even"
+
+"date","time","period","vWind10m (m/s)_mean","vWind10m (m/s)_sigma","vWind10m (m/s)_max","vWind10m (m/s)_min","uDR02 (V)_mean","uDR02 (V)_sigma","uDR02 (V)_max","uDR02 (V)_min","uIset1 (V)_mean","uIset1 (V)_sigma","uIset1 (V)_max","uIset1 (V)_min","uIset2 (V)_mean","uIset2 (V)_sigma","uIset2 (V)_max","uIset2 (V)_min","uIset3 (V)_mean","uIset3 (V)_sigma","uIset3 (V)_max","uIset3 (V)_min","DirWind (°)_mean360","DirWind (°)_sigma","DniDR02 (W/m2)_mean","DniDR02 (W/m2)_sigma","DniDR02 (W/m2)_max","DniDR02 (W/m2)_min","DhiSR30 (W/m2)_mean","DhiSR30 (W/m2)_sigma","DhiSR30 (W/m2)_max","DhiSR30 (W/m2)_min","GhiSR30 (W/m2)_mean","GhiSR30 (W/m2)_sigma","GhiSR30 (W/m2)_max","GhiSR30 (W/m2)_min","GhiIset1 (W/m2)_mean","GhiIset1 (W/m2)_sigma","GhiIset1 (W/m2)_max","GhiIset1 (W/m2)_min","GhiIset2 (W/m2)_mean","GhiIset2 (W/m2)_sigma","GhiIset2 (W/m2)_max","GhiIset2 (W/m2)_min","GhiIset3 (W/m2)_mean","GhiIset3 (W/m2)_sigma","GhiIset3 (W/m2)_max","GhiIset3 (W/m2)_min","TempSR30Dhi (°C)_mean","TempSR30Ghi (°C)_mean","TempIset1 (°C)_mean","TempIset3 (°C)_mean","TempLogger (°C)_mean","TempLogger (°C)_max","TempLogger (°C)_min","TempAir (°C)_mean","TempAir (°C)_max","TempAir (°C)_min","HumAir (%RH)_mean","HumAir (%RH)_max","HumAir (%RH)_min","pBaro (hPa)_mean","pBaro (hPa)_max","pBaro (hPa)_min","uSupply (V)_mean","uSupply (V)_max","uSupply (V)_min","iSupply (A)_mean","iSupply (A)_max","iSupply (A)_min","PowSupply (W)_mean","PowSupply (W)_max","PowSupply (W)_min","uBat1 (V)_mean","uBat1 (V)_max","uBat1 (V)_min","uBat2 (V)_mean","uBat2 (V)_max","uBat2 (V)_min","Service (1=SwitchPressed)_max","SolarElevation (°)_mean","DOUT1 (1 = DR02 Heater ON)_mean","CalGhiRef (W/m2)_mean","CalGhiRef (W/m2)_sigma","CalGhiRef (W/m2)_max","CalGhiRef (W/m2)_min","CalDniRef (W/m2)_mean","CalDniRef (W/m2)_sigma","CalDniRef (W/m2)_max","CalDniRef (W/m2)_min"
+2018-10-18,14:13:38,30,6.77817,0.723468,7.85,5.84,6.66667e-07,6.79869e-06,1e-05,-1e-05,-5.33333e-06,4.98888e-06,0,-1e-05,-3.33333e-06,4.71405e-06,1e-05,-1e-05,-6.66667e-06,6.99206e-06,0,-2e-05,96.9903,6.44827,0.0546001,0.556814,0.819001,-0.819001,-0.686,0.0202649,-0.67,-0.76,-0.550667,0.00771722,-0.54,-0.58,-0.179815,0.168202,0,-0.337154,-0.112929,0.159706,0.338788,-0.338788,-0.208184,0.218345,0,-0.624551,29.8173,29.632,26.3387,26.8155,33.526,33.53,33.52,26.8957,26.9011,26.8901,70.8703,71.2461,70.7008,979.779,979.86,979.71,24.8053,24.853,24.736,0.320351,0.38681,0.26374,7.95333,9.6,6.5,14.1954,14.221,14.154,14.2511,14.272,14.221,0,15.5948,0,nan,nan,nan,nan,295939,9472.95,310971,273638

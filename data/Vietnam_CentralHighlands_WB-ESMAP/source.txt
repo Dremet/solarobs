@@ -1,0 +1,2 @@
+Data by ESMAP / World Bank / Suntrace, see:
+https://energydata.info/dataset/vietnam-solar-radiation-measurement-data
